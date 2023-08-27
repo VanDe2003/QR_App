@@ -1,48 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
 import appStyle from './styles/appStyle';
+import Menu from './components/Menu';
+import BtnLogin from './components/BtnLogin'
+import FormLogin from './components/FormLogin';
+import LogoComponent from './components/LogoComponent';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <View style={appStyle.container}>
-        {/*Logo*/}
-        <Image
-             source={require('./assets/images/logo.png')}
-             style={appStyle.image}
-        />
-
-         {/*Title Login | Res*/}
-      <View style={appStyle.titleLogin}>
-        <Text style={appStyle.loginText}>Đăng Nhập</Text>
-        <Text style={appStyle.resText}>Đăng Ký</Text>
-      </View>
-
-      <View style={appStyle.parentLine}>
-        <Text style={appStyle.line}>s</Text>
-      </View>
-
-      {/*Input Username*/}
-      <View style={appStyle.input}>
-        <Image
-          source={require('./assets/images/ic-user.png')}
-          style={appStyle.imgUser}
-        />
-
-        <TextInput
-          style={appStyle.username}
-          placeholder="Tài Khoản"
-        />
-      </View>
-
-      {/*Input Password*/}
-      <TextInput
-        style={appStyle.input}
-        placeholder="Mật Khẩu"
-        secureTextEntry
-      />
-
-      {/*Button Login*/}
-      <Button title="Đăng Nhập" onPress={() => alert("Logged in")} />
+        <LogoComponent />
+        <Menu />
+        <FormLogin />
+        <BtnLogin />
       <StatusBar style="auto" />
     </View>
   );
